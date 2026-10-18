@@ -14,10 +14,18 @@ The owner is building this to learn it and to be able to defend every line in an
 
 ## The pre-registration rule — check before every analysis step
 
-**No outcome column (`visit`, `conversion`, `spend`) may be summarized by arm until
-`plan/preregistration.md` is filled in and committed.** Check with
-`git log --oneline -- plan/preregistration.md`. Before that commit, only these are allowed:
-arm counts, covariates, and outcome distributions POOLED with arms hidden (for blinded power).
+**No outcome column (`visit`, `conversion`, `spend`) may be summarized by arm until the
+pre-registration is complete and tagged.** The first commit of `plan/preregistration.md` is an
+EMPTY TEMPLATE, so `git log` on the file is not the gate. The gate is the git tag `prereg`:
+check with `git tag -l prereg`. She creates it herself when every heading has content
+(`git tag prereg && git push origin prereg`); its commit date is the public record. Before the
+tag exists, only these are allowed: arm counts, covariates, and outcome distributions POOLED
+with arms hidden (for blinded power and the heavy-tail rule).
+
+**This dataset is public and has been analyzed widely.** Do not recite published or remembered
+results by arm (which email won, effect sizes, uplift findings) at any point before the tag.
+The README must say that pre-registration here guards against her own forking paths, not
+against prior knowledge of a famous dataset.
 If asked to do something that would reveal an effect early, say so and stop.
 
 ## Order of work
